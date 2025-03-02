@@ -5,7 +5,7 @@ export default function Contacts() {
     let a=document.getElementById("cname").value;
     let b=document.getElementById("cemail").value;
     let c=document.getElementById("cmsg").value;
-    if(a==""||a==" "||b==""||b==" "||c==""||c==" "){
+    if(a===""||a===" "||b===""||b===" "||c===""||c===" "){
       alert("PLEASE ENTER ALL THE DETAILS.");
     }else{
       alert("Your message is Sent.")

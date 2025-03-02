@@ -58,27 +58,27 @@ export default function Search() {
         </select>
         <button className='btn btn-success' onClick={()=>loadUsers() }style={{marginLeft:"45%",marginTop:"1%",width:"20vh"}}  >Search</button>
       <h1 style={{textAlign:"center",textShadow:"3px 5px 5px darkgrey",}}>Tutor List</h1>
-      {users.map((user,index)=>(
+      {users.map((user1,index)=>(
           
           <div className='details' key={index}>
             <table >
               <tr>
-                  <td><h4>Name : {user.name}</h4></td>
-                  <td><h4>Email : {user.email}</h4></td>
-                  <td><h4>Fees : {user.min_fees}-{user.max_fees} / Month .</h4></td>
+                  <td><h4>Name : {user1.name}</h4></td>
+                  <td><h4>Email : {user1.email}</h4></td>
+                  <td><h4>Fees : {user1.min_fees}-{user1.max_fees} / Month .</h4></td>
               </tr>
               <tr>
-                   <td><h4>Subject : {user.field}</h4></td>
-                   <td><h4>Mobile No. : {user.phone}</h4></td>
-                   <td><h4>Mode : {user.mode}</h4></td>
+                   <td><h4>Subject : {user1.field}</h4></td>
+                   <td><h4>Mobile No. : {user1.phone}</h4></td>
+                   <td><h4>Mode : {user1.mode}</h4></td>
               </tr>
               <tr>
                 <td>
-                   <h4>Education : {user.edu}</h4>
+                   <h4>Education : {user1.edu}</h4>
                 </td>
-                <td colSpan={2}><h4>Experience : {user.exp}</h4></td>
+                <td colSpan={2}><h4>Experience : {user1.exp}</h4></td>
               </tr>
-              <tr><td colSpan={3}><button  onClick={()=>reqAdd(index)} className='btn btn-success'>Apply</button></td></tr>
+              <tr><td colSpan={3}>{user && user.profession==="Teacher"?<></>:<button  onClick={()=>reqAdd(index)} className='btn btn-success'>Apply</button>}</td></tr>
             </table>
             
             

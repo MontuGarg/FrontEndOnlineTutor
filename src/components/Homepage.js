@@ -7,24 +7,23 @@ export default function Homepage() {
   const { id } = useParams();
   const [req, setReq] = useState([]);  // Requests array
   const [user, setUser] = useState(null); // Current user
-  console.log(user);
+  
   useEffect(() => {
-    loadUsers();
-  }, []); // Include 'id' to prevent missing dependency warning
-
-  const loadUsers = async () => {
-    try {
-      const result = await axios.get("https://backendfindonlinetutor-production.up.railway.app/register");
-
-      const foundUser = result.data.find((i) => i._id === id);
-      if (foundUser) {
-        setUser(foundUser);
-        setReq(foundUser.note || []); // Ensure note is an array
+    const loadUsers = async () => {
+      try {
+        const result = await axios.get("https://backendfindonlinetutor-production.up.railway.app/register");
+        const foundUser = result.data.find((i) => i._id === id);
+        if (foundUser) {
+          setUser(foundUser);
+          setReq(foundUser.note || []); // Ensure note is an array
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+    };
+
+    loadUsers();
+  }, [id,user]); // Include 'id' in dependency array to prevent warnings
 
   return (
     <div id="Teacher">
