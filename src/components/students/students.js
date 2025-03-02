@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export default function Students() {
   const [users, setUsers] = useState([]);  // List of teachers
   const [user, setUser] = useState(null); // Logged-in user
-
   useEffect(() => {
     loadUsers();
   }, []); // No infinite loop

@@ -35,6 +35,7 @@ export default function Login({ setLoginUser }) {
             axios.post("https://backendfindonlinetutor-production.up.railway.app/login", user).then(res => {
                 if (res.data.user.profession === profession) {
                     if (res.data.user.profession === "Student") {
+                        
                         history("/students");
                     } else if (res.data.user.profession === "Teacher") {
                         history(`/Homepage/${res.data.user._id}`);

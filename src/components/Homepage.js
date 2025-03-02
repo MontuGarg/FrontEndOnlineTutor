@@ -7,8 +7,8 @@ export default function Homepage() {
   const { id } = useParams();
   const [req, setReq] = useState([]);  // Requests array
   const [user, setUser] = useState(null); // Current user
-  
   useEffect(() => {
+    
     const loadUsers = async () => {
       try {
         const result = await axios.get("https://backendfindonlinetutor-production.up.railway.app/register");
